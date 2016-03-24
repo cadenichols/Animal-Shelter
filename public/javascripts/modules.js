@@ -9,7 +9,3 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 	.state('owners', {url: '/owners', templateUrl: '/html/owners.html', controller:'AccordionDemoCtrl'})
   $urlRouterProvider.otherwise('/');
 })
-
-// app.run(function(petService) {
-//
-// });

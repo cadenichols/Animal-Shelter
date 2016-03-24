@@ -8,10 +8,6 @@ app.service('petService', function($http) {
     return $http.get('/pets');
   };
 
-  // this.getUpcoming = function() {
-  //   return $http.get('/pets/upcoming');
-  // };
-  //
   this.create = function(pet) {
     return $http.post('/pets', pet);
   };
@@ -28,10 +24,6 @@ app.service('petService', function($http) {
     return $http.put(`/pets/${petId}/adopted`);
   };
 
-  // this.addOwner = function (apptId, ownerIds) {
-  //   return $http.put(`/pets/${petId}/addOwner/`, { ownerIds: ownerIds });
-  // }
-
 });
 
 
@@ -44,17 +36,4 @@ app.service('ownerService', function($http) {
   this.get = function() {
     return $http.get('/owners');
   };
-
-  // this.create = function(pet) {
-  //   return $http.post('/pets', pet);
-  // };
-  //
-  // this.update = function(petId, updateObj) {
-  //   return $http.put(`/pets/${petId}`, updateObj);
-  // };
-  //
-  // this.remove = function (id) {
-  //    return $http.delete(`/pets/${id}`);
-  //  };
-
 });

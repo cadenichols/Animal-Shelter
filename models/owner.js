@@ -6,7 +6,6 @@ var ownerSchema = new mongoose.Schema({
   name: String,
   image: String,
   phoneNumber: String,
-  //pets:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Pet'}],
   createdAt: { type: Date, default: Date.now },
 });
 

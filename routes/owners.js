@@ -22,7 +22,6 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function(req, res) {
   var owner = new Owner(req.body);
-  console.log(req.body);
   owner.save(function(err, savedOwner) {
     res.status(err ? 400 : 200).send(err || savedOwner);
   });

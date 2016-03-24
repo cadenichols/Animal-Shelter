@@ -14,13 +14,4 @@ var petSchema = new mongoose.Schema({
 
 var Pet = mongoose.model('Pet', petSchema);
 
-// var Pet = mongoose.model('Pet', {
-//     name: String,
-//     details: String,
-//     image: String,
-//     abandonedSince: Date,
-//     createdAt: { type: Date, default: Date.now },
-//     isAdopted: { type: Boolean, default: false }
-// });
-
 module.exports = Pet;
