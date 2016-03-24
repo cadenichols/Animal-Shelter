@@ -34,6 +34,7 @@ app.controller('petsCtrl', function($scope, petService, ownerService) {
   }
 
   getPets();
+  getOwners();
 
   $scope.addRabbit = function () {
     console.log($scope.newRabbit);
@@ -72,8 +73,9 @@ app.controller('petsCtrl', function($scope, petService, ownerService) {
    animalEdit = rabbitID;
  }
 
- $scope.getOwners = function (thisRabbit) {
+ getOwners = function (thisRabbit) {
    //for each owner in ownerArr, send a get request to the Client
+   console.log("clicked to get owners");
    console.log(thisRabbit);
    var ownerArr = thisRabbit.owners;
    ownerArr.forEach(function (dude) {
@@ -88,13 +90,59 @@ app.controller('petsCtrl', function($scope, petService, ownerService) {
    //$scope.guys = ownerArr;
 }
 
- $scope.toggleCheckbox() = function (thisRabbit) {
+ $scope.toggleCheckbox = function (thisRabbit) {
    petService.toggleAdopted(thisRabbit._id)
    .then(function(res) {
      console.log("changed");
+     console.log(res.data.isAdopted);
+     $scope.changeCheckbox = res.data.isAdopted;
    }, function (err) {
      console.log(err);
    });
  }
 
+});
+
+
+
+
+
+app.controller('AccordionDemoCtrl', function ($scope, ownerService) {
+  //$scope.oneAtATime = true;
+
+  $scope.owners = {};
+
+  function getOwners() {
+    ownerService.get()
+    .then(function(res) {
+      $scope.owners = res.data;
+    }, function (err) {
+      console.log(err);
+    });
+  }
+
+  getOwners();
+
+  // $scope.groups = [
+  //   {
+  //     title: 'Dynamic Group Header - 1',
+  //     content: 'Dynamic Group Body - 1'
+  //   },
+  //   {
+  //     title: 'Dynamic Group Header - 2',
+  //     content: 'Dynamic Group Body - 2'
+  //   }
+  // ];
+
+  // $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+  // $scope.addItem = function() {
+  //   var newItemNo = $scope.items.length + 1;
+  //   $scope.items.push('Item ' + newItemNo);
+  // };
+
+  // $scope.status = {
+  //   isFirstOpen: true,
+  //   isFirstDisabled: false
+  // };
 });

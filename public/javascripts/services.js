@@ -41,10 +41,10 @@ app.service('ownerService', function($http) {
     return $http.get(`/owners/${id}`);
   }
 
-  // this.get = function() {
-  //   return $http.get('/pets');
-  // };
-  //
+  this.get = function() {
+    return $http.get('/owners');
+  };
+
   // this.create = function(pet) {
   //   return $http.post('/pets', pet);
   // };
